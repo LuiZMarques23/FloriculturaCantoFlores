@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Floricultura canto da flores</string>
+    <string name="login">login</string>
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
 </resources>

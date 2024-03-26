@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FloriculturaCantoDaFlores"
         tools:targetApi="31">
-
+        <activity
+            android:name=".activity.FormCadastro.FormCadastroActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.FormLogin.TelaLoginActivity"
             android:exported="true">

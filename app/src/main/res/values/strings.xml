@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Floricultura canto da flores</string>
-    <string name="login">login</string>
+    <string name="login">Canto das flores</string>
     <string name="email">Email</string>
     <string name="senha">Senha</string>
     <string name="entrar">Entrar</string>
+    <string name="celular">Celular</string>
+    <string name="j_fez_cadastro">Já fez cadastro?</string>
+    <string name="inicio">Inicio</string>
+    <string name="cadastro">Cadastro</string>
+    <string name="confirma">Confirma senha</string>
 </resources>

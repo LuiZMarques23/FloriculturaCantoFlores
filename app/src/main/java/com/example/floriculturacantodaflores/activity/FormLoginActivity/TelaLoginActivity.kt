@@ -3,10 +3,13 @@ package com.example.floriculturacantodaflores.activity.FormLoginActivity
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.floriculturacantodaflores.activity.FormCadastroActivity.FormCadastroActivity
 import com.example.floriculturacantodaflores.activity.HomePrincipalActivity.TelaPrincipalProdutosActivity
+import com.example.floriculturacantodaflores.activity.dialog.DialogCarregando
 import com.example.floriculturacantodaflores.databinding.ActivityTelaLoginBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -14,17 +17,18 @@ import com.google.firebase.auth.FirebaseAuth
 class TelaLoginActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityTelaLoginBinding
+
+    val dialogCarregando = DialogCarregando(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTelaLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar!!.hide()
+
         corStatusBar()
         configclik()
         logarConta()
-
-        supportActionBar!!.hide()
-
     }
 
     private fun logarConta(){
@@ -42,11 +46,15 @@ class TelaLoginActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(email,senha).addOnCompleteListener { tarefa ->
                     if (tarefa.isSuccessful){
 
+                        dialogCarregando.iniciaCarregamentoAlerdDialog()
+                        Handler(Looper.getMainLooper()).postDelayed({
 
+                            val intent = Intent(this, TelaPrincipalProdutosActivity:: class.java)
+                            startActivity(intent)
+                            finish()
+                            dialogCarregando.liberarAlertDialog()
+                        },2000)
 
-                        val intent = Intent(this, TelaPrincipalProdutosActivity:: class.java)
-                        startActivity(intent)
-                        finish()
                     }
                 }.addOnFailureListener {
                     val snackbar = Snackbar.make(view,"Erro ao fazer login!", Snackbar.LENGTH_SHORT)

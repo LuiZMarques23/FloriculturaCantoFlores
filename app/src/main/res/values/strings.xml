@@ -9,4 +9,8 @@
     <string name="inicio">Inicio</string>
     <string name="cadastro">Cadastro</string>
     <string name="confirma">Confirma senha</string>
+    <string name="informe_seu_e_mail_que_enviaremos_num_link_para_altera_o_da_senha">Informe seu e-mail que enviaremos \num link para alteração da senha.</string>
+    <string name="voltar">Voltar</string>
+    <string name="j_enviou">Já recuperou senha?</string>
+    <string name="recuperar">Recuperar</string>
 </resources>

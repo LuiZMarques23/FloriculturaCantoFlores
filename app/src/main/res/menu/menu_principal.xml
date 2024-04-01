@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title=""
+        android:icon="@drawable/ic_menu_lateral"
+        app:showAsAction="always">
+
+
+        <menu>
+
+            <item
+
+                android:id="@+id/perfil"
+                android:title="@string/perfil"
+                android:icon="@drawable/ic_perfil_menu"
+                app:showAsAction="never"
+
+                />
+
+            <item
+
+                android:id="@+id/pedidos"
+                android:title="@string/pedidos"
+                android:icon="@drawable/ic_pedidos"
+                app:showAsAction="never"
+
+                />
+
+            <item
+
+                android:id="@+id/termos"
+                android:title="@string/termos"
+                android:icon="@drawable/ic_termos"
+                app:showAsAction="never"
+
+                />
+
+            <item
+
+                android:id="@+id/ajuda"
+                android:title="@string/ajuda"
+                android:icon="@drawable/ic_ajuda"
+                app:showAsAction="never"
+
+                />
+
+            <item
+
+                android:id="@+id/deslogar"
+                android:title="@string/deslogar"
+                android:icon="@drawable/ic_deslogar"
+                app:showAsAction="never"
+
+                />
+
+        </menu>
+
+    </item>
+
+</menu>

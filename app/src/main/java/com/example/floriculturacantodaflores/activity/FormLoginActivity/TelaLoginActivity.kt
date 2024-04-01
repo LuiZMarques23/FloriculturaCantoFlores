@@ -49,9 +49,7 @@ class TelaLoginActivity : AppCompatActivity() {
                         dialogCarregando.iniciaCarregamentoAlerdDialog()
                         Handler(Looper.getMainLooper()).postDelayed({
 
-                            val intent = Intent(this, TelaPrincipalProdutosActivity:: class.java)
-                            startActivity(intent)
-                            finish()
+                            irParaTelaDeProdutos()
                             dialogCarregando.liberarAlertDialog()
                         },2000)
 
@@ -80,5 +78,21 @@ class TelaLoginActivity : AppCompatActivity() {
 
     private fun corStatusBar() {
         window.statusBarColor = Color.parseColor("#37F818")
+    }
+
+    private fun irParaTelaDeProdutos(){
+        val intent = Intent(this, TelaPrincipalProdutosActivity:: class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val usuarioAtual = FirebaseAuth.getInstance().currentUser
+
+        if (usuarioAtual != null){
+            irParaTelaDeProdutos()
+        }
     }
 }

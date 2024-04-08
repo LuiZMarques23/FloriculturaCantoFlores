@@ -9,7 +9,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.floriculturacantodaflores.activity.FormCadastroActivity.FormCadastroActivity
 import com.example.floriculturacantodaflores.activity.HomePrincipalActivity.TelaPrincipalProdutosActivity
-import com.example.floriculturacantodaflores.activity.dialog.DialogCarregando
+import com.example.floriculturacantodaflores.dialog.DialogCarregando
 import com.example.floriculturacantodaflores.databinding.ActivityTelaLoginBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth

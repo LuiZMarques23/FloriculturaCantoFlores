@@ -1,4 +1,4 @@
-package com.example.floriculturacantodaflores.activity.model
+package com.example.floriculturacantodaflores.model
 
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth

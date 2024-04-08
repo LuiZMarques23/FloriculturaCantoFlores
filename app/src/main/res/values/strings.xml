@@ -18,4 +18,5 @@
     <string name="termos">Termos</string>
     <string name="ajuda">Ajuda</string>
     <string name="deslogar">Deslogar</string>
+    <string name="sair">Sair</string>
 </resources>

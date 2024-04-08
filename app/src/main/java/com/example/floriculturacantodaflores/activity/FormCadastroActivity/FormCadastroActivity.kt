@@ -3,7 +3,7 @@ package com.example.floriculturacantodaflores.activity.FormCadastroActivity
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.floriculturacantodaflores.activity.model.DB
+import com.example.floriculturacantodaflores.model.DB
 import com.example.floriculturacantodaflores.databinding.ActivityFormCadastroBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseNetworkException

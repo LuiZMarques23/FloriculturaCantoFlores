@@ -1,4 +1,4 @@
-package com.example.floriculturacantodaflores.activity.dialog
+package com.example.floriculturacantodaflores.dialog
 
 import android.app.Activity
 import android.app.AlertDialog

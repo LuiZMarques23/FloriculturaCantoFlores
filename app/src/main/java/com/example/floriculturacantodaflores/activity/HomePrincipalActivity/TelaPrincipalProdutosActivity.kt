@@ -43,7 +43,7 @@ class TelaPrincipalProdutosActivity : AppCompatActivity() {
 
     private fun deslogarUsuario(){
         FirebaseAuth.getInstance().signOut()
-        val intent = Intent(this,TelaPrincipalProdutosActivity::class.java)
+        val intent = Intent(this,TelaLoginActivity::class.java)
         startActivity(intent)
         finish()
     }

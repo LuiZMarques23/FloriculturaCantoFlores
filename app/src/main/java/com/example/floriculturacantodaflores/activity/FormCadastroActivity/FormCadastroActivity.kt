@@ -51,7 +51,7 @@ class FormCadastroActivity : AppCompatActivity() {
             }else{
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,senha).addOnCompleteListener {tarefa ->
                     if (tarefa.isSuccessful){
-                        db.salvaDadosUsuarios(nome, celula ) // celular so um test
+                        db.salvaDadosUsuarios(nome)
 
                         val snackbar = Snackbar.make(it, "Cadastro realizado com sucesso ;)", Snackbar.LENGTH_SHORT)
                         snackbar.setBackgroundTint(Color.GREEN)

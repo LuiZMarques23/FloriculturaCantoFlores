@@ -1,20 +1,20 @@
 package com.example.floriculturacantodaflores.model
 
 import android.util.Log
+import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 
 class DB {
 
-    fun salvaDadosUsuarios(nome: String, celula: String){
+    fun salvaDadosUsuarios(nome: String){
 
         val usuarioID = FirebaseAuth.getInstance().currentUser!!.uid
         val db = FirebaseFirestore.getInstance()
 
         val usuarios = hashMapOf(
-            "nome" to nome,
-            "celula" to celula // celular so um test
+            "nome" to nome
         )
 
         val documentoReference: DocumentReference = db.collection("Usuarios").document(usuarioID)
@@ -23,5 +23,21 @@ class DB {
         }.addOnFailureListener { erro ->
             Log.d("DB_ERROE","Erro ao salvar os dados! ${erro.printStackTrace()}")
         }
+    }
+
+    fun recuperarDadosUsuarioPerfil(nomeUsuario: TextView, emailUsuario: TextView){
+
+        val usuarioID = FirebaseAuth.getInstance().currentUser!!.uid
+        val email = FirebaseAuth.getInstance().currentUser!!.email
+        val db = FirebaseFirestore.getInstance()
+
+        val documentoReference: DocumentReference = db.collection("Usuarios").document(usuarioID)
+        documentoReference.addSnapshotListener { documento, error ->
+            if (documento != null){
+                nomeUsuario.text = documento.getString("nome")
+                emailUsuario.text = email
+            }
+        }
+
     }
 }

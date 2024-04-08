@@ -19,4 +19,5 @@
     <string name="ajuda">Ajuda</string>
     <string name="deslogar">Deslogar</string>
     <string name="sair">Sair</string>
+    <string name="EntrarApp">Login</string>
 </resources>

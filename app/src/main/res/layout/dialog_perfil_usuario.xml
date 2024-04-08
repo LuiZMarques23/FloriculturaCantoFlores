@@ -33,7 +33,7 @@
         android:layout_marginStart="10dp"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:text="Luiz henrique marques d silva"
+        android:text=""
         app:layout_constraintStart_toEndOf="@+id/ic_nomeUsuario"
         app:layout_constraintTop_toBottomOf="@+id/conterne_circulo" />
 
@@ -55,7 +55,7 @@
         android:layout_marginStart="10dp"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:text="Luiz@gmail.com"
+        android:text=""
         app:layout_constraintStart_toEndOf="@+id/ic_nomeUsuario"
         app:layout_constraintTop_toBottomOf="@+id/txt_nomeUsuario" />
 

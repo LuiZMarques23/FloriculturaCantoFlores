@@ -151,7 +151,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:paddingVertical="16dp"
-            android:text="@string/inicio"
+            android:text="@string/EntrarApp"
             android:textColor="@color/green"
             android:textStyle="bold" />
 

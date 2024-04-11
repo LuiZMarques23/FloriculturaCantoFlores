@@ -1,13 +1,15 @@
 package com.example.floriculturacantodaflores.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.floriculturacantodaflores.databinding.ProdutoItemBinding
 import com.example.floriculturacantodaflores.model.Produto
 
 
-class AdapterProduto(val lista_produtos: MutableList<Produto>):
+class AdapterProduto(val context: Context, val lista_produtos: MutableList<Produto>):
     RecyclerView.Adapter<AdapterProduto.ProdutoViewHolter>() {
 
 
@@ -19,9 +21,9 @@ class AdapterProduto(val lista_produtos: MutableList<Produto>):
 
 
     override fun onBindViewHolder(holder: ProdutoViewHolter, position: Int) {
-        lista_produtos.get(position).foto?.let { holder.fotoProduto.setImageResource(it) }
+        Glide.with(context).load(lista_produtos.get(position).foto).into(holder.fotoProduto)
         holder.nomeProduto.text = lista_produtos.get(position).nome
-        holder.precoProduto.text = lista_produtos.get(position).preco
+        holder.precoProduto.text = "R$ ${lista_produtos.get(position).preco}"
     }
 
     override fun getItemCount() = lista_produtos.size

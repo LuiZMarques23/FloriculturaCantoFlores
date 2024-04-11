@@ -10,19 +10,46 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.floriculturacantodaflores.R
 import com.example.floriculturacantodaflores.activity.FormLoginActivity.TelaLoginActivity
+import com.example.floriculturacantodaflores.adapter.AdapterProduto
+import com.example.floriculturacantodaflores.databinding.ActivityTelaPrincipalProdutosBinding
 import com.example.floriculturacantodaflores.dialog.DialogPerfilUsuario
+import com.example.floriculturacantodaflores.model.DB
+import com.example.floriculturacantodaflores.model.Produto
 import com.google.firebase.auth.FirebaseAuth
 
 class TelaPrincipalProdutosActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityTelaPrincipalProdutosBinding
+    lateinit var adapterProduto: AdapterProduto
+    var lista_produtos: MutableList<Produto> = mutableListOf()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityTelaPrincipalProdutosBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        setContentView(R.layout.activity_tela_principal_produtos)
         corStatusBar()
 
+
+
+        val recycler_Produtos = binding.recyclerProdutos
+        recycler_Produtos.layoutManager = GridLayoutManager(this,2)
+        recycler_Produtos.setHasFixedSize(true)
+        adapterProduto = AdapterProduto(this,lista_produtos)
+        recycler_Produtos.adapter = adapterProduto
+
+        val db = DB()
+        db.obterListaProdutos(lista_produtos,adapterProduto)
+
+
+
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 

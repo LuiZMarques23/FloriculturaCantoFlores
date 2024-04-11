@@ -2,6 +2,7 @@ package com.example.floriculturacantodaflores.model
 
 import android.util.Log
 import android.widget.TextView
+import com.example.floriculturacantodaflores.adapter.AdapterProduto
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -38,6 +39,25 @@ class DB {
                 emailUsuario.text = email
             }
         }
+
+    }
+
+    fun obterListaProdutos(lista_produtos: MutableList<Produto>, adapter_produtos: AdapterProduto){
+
+        val db = FirebaseFirestore.getInstance()
+
+        db.collection("Produtos").get()
+            .addOnCompleteListener { tarefa ->
+                if (tarefa.isSuccessful){
+                    for (documento in tarefa.result!!){
+
+                        val produto = documento.toObject(Produto::class.java)
+                        lista_produtos.add(produto)
+                        adapter_produtos.notifyDataSetChanged()
+
+                    }
+                }
+            }
 
     }
 }

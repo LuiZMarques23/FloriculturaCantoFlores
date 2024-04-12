@@ -20,4 +20,6 @@
     <string name="deslogar">Deslogar</string>
     <string name="sair">Sair</string>
     <string name="EntrarApp">Login</string>
+    <string name="pre_o">Preço</string>
+    <string name="finalizar_pedido">Finalizar pedido</string>
 </resources>

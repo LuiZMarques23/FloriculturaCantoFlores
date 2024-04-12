@@ -1,10 +1,12 @@
 package com.example.floriculturacantodaflores.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.floriculturacantodaflores.activity.DetalheProdutos.DetalheProdutosActivity
 import com.example.floriculturacantodaflores.databinding.ProdutoItemBinding
 import com.example.floriculturacantodaflores.model.Produto
 
@@ -24,6 +26,11 @@ class AdapterProduto(val context: Context, val lista_produtos: MutableList<Produ
         Glide.with(context).load(lista_produtos.get(position).foto).into(holder.fotoProduto)
         holder.nomeProduto.text = lista_produtos.get(position).nome
         holder.precoProduto.text = "R$ ${lista_produtos.get(position).preco}"
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context,DetalheProdutosActivity::class.java)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount() = lista_produtos.size

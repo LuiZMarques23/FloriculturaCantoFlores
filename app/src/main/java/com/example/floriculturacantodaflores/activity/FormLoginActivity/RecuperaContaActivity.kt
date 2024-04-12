@@ -27,7 +27,7 @@ class RecuperaContaActivity : AppCompatActivity() {
     }
 
     private fun confclique(){
-        binding.btnREcuVolta.setOnClickListener { v ->
+        binding.btnREcuVolta.setOnClickListener {
             finish()
         }
     }

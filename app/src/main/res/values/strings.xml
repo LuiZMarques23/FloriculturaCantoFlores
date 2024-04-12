@@ -22,4 +22,5 @@
     <string name="EntrarApp">Login</string>
     <string name="pre_o">Preço</string>
     <string name="finalizar_pedido">Finalizar pedido</string>
+    <string name="n_o_quer_finalizar">Não quer finalizar?</string>
 </resources>

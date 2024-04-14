@@ -85,6 +85,7 @@
                 android:background="@drawable/custom_editext"
                 android:drawableStart="@drawable/ic_telefone"
                 android:drawablePadding="8dp"
+                android:maxLength="11"
                 android:hint="@string/celular"
                 android:inputType="number"
                 android:padding="8dp" />
@@ -97,6 +98,7 @@
                 android:background="@drawable/custom_editext"
                 android:drawableStart="@drawable/ic_senha"
                 android:drawablePadding="8dp"
+                android:maxLength="6"
                 android:hint="@string/senha"
                 android:inputType="numberPassword"
                 android:padding="8dp" />
@@ -109,6 +111,7 @@
                 android:background="@drawable/custom_editext"
                 android:drawableStart="@drawable/ic_ok"
                 android:drawablePadding="8dp"
+                android:maxLength="6"
                 android:hint="@string/confirma"
                 android:inputType="numberPassword"
                 android:padding="8dp" />

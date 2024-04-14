@@ -23,4 +23,10 @@
     <string name="pre_o">Preço</string>
     <string name="finalizar_pedido">Finalizar pedido</string>
     <string name="n_o_quer_finalizar">Não quer finalizar?</string>
+    <string name="Titulo_pagamento">Preencha todos os campos antes de fazer o pagamento</string>
+    <string name="hint_bairro">Bairro</string>
+    <string name="hint_rua_numero">Rua / Numero</string>
+    <string name="hint_cidade_estardo">Cidade / Estardo</string>
+    <string name="hint_celular">Celular</string>
+    <string name="text_fazer_pagamento">Fazer pagamento</string>
 </resources>

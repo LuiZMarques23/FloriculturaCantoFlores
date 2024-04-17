@@ -1,6 +1,7 @@
 package com.example.floriculturacantodaflores.activity.Pagamento;
 
 import android.graphics.Color;
+import android.hardware.biometrics.BiometricManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,10 +14,20 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.floriculturacantodaflores.R;
 import com.example.floriculturacantodaflores.databinding.ActivityPagamentoBinding;
+import com.example.floriculturacantodaflores.interfaceMercadoPago.ComunicacaoServidorMP;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class PagamentoActivity extends AppCompatActivity {
 
@@ -85,6 +96,37 @@ public class PagamentoActivity extends AppCompatActivity {
         dados.add("payer",email);
 
         Log.d("j",dados.toString());
+
+        criarPrefereciaPagamento(dados);
+
+    }
+
+    private void criarPrefereciaPagamento(JsonObject dados){
+        String sit = "https://api.mercadopago.com";
+        String url = "/v1/payments?access_token" + ACCESS_TOKEN;
+
+        Gson gson = new GsonBuilder().setLenient().create();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(sit)
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
+
+        ComunicacaoServidorMP conexao_pagamento = retrofit.create(ComunicacaoServidorMP.class);
+        Call<JsonObject> request = conexao_pagamento.enviarPagamento(url,dados);
+        request.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                String preferenceID = response.body().get("id").getAsString();
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+            }
+        });
 
     }
 
